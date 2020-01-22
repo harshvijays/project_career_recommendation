@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Research Application Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 32px;
+      color: #fff;
+      z-index: 2;
+      }
+      h5 {
+      margin: 10px 0;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 20px 0 #095484;
+      }
+      .banner {
+      position: relative;
+      height: 210px;
+      background-image: url("/uploads/media/default/0001/01/c43630149befa5c9559813f72e99bcb6bf149e62.jpeg");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder, a {
+      color: #095484;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #095484;
+      color: #095484;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio, label.check {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      span.required {
+      margin-left: 0;
+      color: red;
+      }
+      .checkbox-item label {
+      margin: 5px 20px 10px 0;
+      }
+      label.radio:before, label.check:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      }
+      label.radio:before {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #095484;
+      }
+      label.check:before {
+      top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+      border: 1px solid #095484;
+      }
+      input[type=checkbox]:checked + .check:before {
+      background: #095484;
+      }
+      label.radio:after {
+      left: 5px;
+      border: 3px solid #095484;
+      }
+      label.check:after {
+      left: 4px;
+      border: 3px solid #fff;
+      }
+      label.radio:after, label.check:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      width: 8px;
+      height: 4px;
+      background: transparent;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after, input[type=checkbox]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #095484;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #0666a3;
+      }
+      @media (min-width: 568px) {
+      .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .city-item input {
+      width: calc(50% - 20px);
+      }
+      .city-item select {
+      width: calc(50% - 8px);
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+    <form action="http://13.235.77.68:1176/predict",method="POST">
+      <div class="banner">
+        <h1>Career Recommendation System</h1>
+      </div>
+      <div class="item">
+        <p>Name and Credentials<span class="required">*</span></p>
+        <input type="text" name="name" required/>
+      </div>
+      <div class="item">
+        <p>Phone<span class="required">*</span></p>
+        <input type="text" name="phone" required/>
+      </div>
+     <div class="item">
+        <p>Email<span class="required">*</span></p>
+        <input type="text" name="email" required/>
+      </div>
+      <h5>Questions</h5>
+      <h5>Scale : </h5>
+      <h5>1 : Strongly Disagree &nbsp &nbsp 2 : Disgree &nbsp &nbsp 3 : Neither &nbsp &nbsp 4 : Agree &nbsp &nbsp 5 : Strongly Agree </h5>
+      <h5></h5>
+      <div class="question">
+        <p>Question 1:  I am happy to take the lead in a group<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree &nbsp &nbsp <input type="radio" value=1 id="radio_11" name="q1" required/>
+          <label for="radio_11" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_12" name="q1" required/>
+          <label for="radio_12" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_13" name="q1" required/>
+          <label for="radio_13" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_14" name="q1" required/>
+          <label for="radio_14" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_15" name="q1" required/>
+          <label for="radio_15" class="radio"><span>5</span></label>
+        Strongly Agree
+		  </div>
+      </div>
+	  <div class="question">
+        <p>Question 2:  More radical ideas appeal to me more than traditional ones<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree &nbsp &nbsp <input type="radio" value=1 id="radio_21" name="q2" required/>
+          <label for="radio_21" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_22" name="q2" required/>
+          <label for="radio_22" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_23" name="q2" required/>
+          <label for="radio_23" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_24" name="q2" required/>
+          <label for="radio_24" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_25" name="q2" required/>
+          <label for="radio_25" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+	  <div class="question">
+        <p>Question 3:  I adapt easily to change<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3> &nbsp &nbsp <input type="radio" value=1 id="radio_31" name="q3" required/>
+          <label for="radio_31" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_32" name="q3" required/>
+          <label for="radio_32" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_33" name="q3" required/>
+          <label for="radio_33" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_34" name="q3" required/>
+          <label for="radio_34" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_35" name="q3" required/>
+          <label for="radio_35" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 4:  I believe that rules are there to be followed<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_41" name="q4" required/>
+          <label for="radio_41" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_42" name="q4" required/>
+          <label for="radio_42" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_43" name="q4" required/>
+          <label for="radio_43" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_44" name="q4" required/>
+          <label for="radio_44" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_45" name="q4" required/>
+          <label for="radio_45" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 5:  I can cope with high levels of stress easily<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_51" name="q5" required/>
+          <label for="radio_51" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_52" name="q5" required/>
+          <label for="radio_52" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_53" name="q5" required/>
+          <label for="radio_53" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_54" name="q5" required/>
+          <label for="radio_54" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_55" name="q5" required/>
+          <label for="radio_55" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 6:  I believe that taking care of the details is very important<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_61" name="q6" required/>
+          <label for="radio_61" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_62" name="q6" required/>
+          <label for="radio_62" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_63" name="q6" required/>
+          <label for="radio_63" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_64" name="q6" required/>
+          <label for="radio_64" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_65" name="q6" required/>
+          <label for="radio_65" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 7:  I don't tend to lose my temper easily<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_71" name="q7" required/>
+          <label for="radio_71" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_72" name="q7" required/>
+          <label for="radio_72" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_73" name="q7" required/>
+          <label for="radio_73" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_74" name="q7" required/>
+          <label for="radio_74" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_75" name="q7" required/>
+          <label for="radio_75" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 8:  Taking risks comes relatively easily to me<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_81" name="q8" required/>
+          <label for="radio_81" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_82" name="q8" required/>
+          <label for="radio_82" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_83" name="q8" required/>
+          <label for="radio_83" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_84" name="q8" required/>
+          <label for="radio_84" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_85" name="q8" required/>
+          <label for="radio_85" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 9:  I remain calm even in tense situations<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_91" name="q9" required/>
+          <label for="radio_91" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_92" name="q9" required/>
+          <label for="radio_92" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_93" name="q9" required/>
+          <label for="radio_93" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_94" name="q9" required/>
+          <label for="radio_94" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_95" name="q9" required/>
+          <label for="radio_95" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 10:  I prefer having very challenging goals and tasks<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3> &nbsp &nbsp<input type="radio" value=1 id="radio_101" name="q10" required/>
+          <label for="radio_101" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_102" name="q10" required/>
+          <label for="radio_102" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_103" name="q10" required/>
+          <label for="radio_103" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_104" name="q10" required/>
+          <label for="radio_104" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_105" name="q10" required/>
+          <label for="radio_105" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 11:  I very much enjoy working in a team<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3> &nbsp &nbsp<input type="radio" value=1 id="radio_111" name="q11" required/>
+          <label for="radio_111" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_112" name="q11" required/>
+          <label for="radio_112" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_113" name="q11" required/>
+          <label for="radio_113" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_114" name="q11" required/>
+          <label for="radio_114" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_115" name="q11" required/>
+          <label for="radio_115" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 12:  I would describe myself as being very curious<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp
+		  <input type="radio" value=1 id="radio_121" name="q12" required/>
+          <label for="radio_121" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_122" name="q12" required/>
+          <label for="radio_122" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_123" name="q12" required/>
+          <label for="radio_123" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_124" name="q12" required/>
+          <label for="radio_124" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_125" name="q12" required/>
+          <label for="radio_125" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+	  <div class="question">
+        <p>Question 13:  I tend to get over setbacks easily<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp
+		  <input type="radio" value=1 id="radio_131" name="q13" required/>
+          <label for="radio_131" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_132" name="q13" required/>
+          <label for="radio_132" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_133" name="q13" required/>
+          <label for="radio_133" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_134" name="q13" required/>
+          <label for="radio_134" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_135" name="q13" required/>
+          <label for="radio_135" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 14:  I like to plan my work in advance<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3>&nbsp &nbsp <input type="radio" value=1 id="radio_141" name="q14" required/>
+          <label for="radio_141" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_142" name="q14" required/>
+          <label for="radio_142" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_143" name="q14" required/>
+          <label for="radio_143" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_144" name="q14" required/>
+          <label for="radio_144" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_145" name="q14" required/>
+          <label for="radio_145" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 15:  I often put the needs of others above my own<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_151" name="q15" required/>
+          <label for="radio_151" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_152" name="q15" required/>
+          <label for="radio_152" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_153" name="q15" required/>
+          <label for="radio_153" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_154" name="q15" required/>
+          <label for="radio_154" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_155" name="q15" required/>
+          <label for="radio_155" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 16:  Hitting deadlines is very important to me<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_161" name="q16" required/>
+          <label for="radio_161" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_162" name="q16" required/>
+          <label for="radio_162" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_163" name="q16" required/>
+          <label for="radio_163" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_164" name="q16" required/>
+          <label for="radio_164" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_165" name="q16" required/>
+          <label for="radio_165" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 17:  If I see someone needs help I try to do all I can for them<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_171" name="q17" required/>
+          <label for="radio_171" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_172" name="q17" required/>
+          <label for="radio_172" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_173" name="q17" required/>
+          <label for="radio_173" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_174" name="q17" required/>
+          <label for="radio_174" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_175" name="q17" required/>
+          <label for="radio_175" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+
+	  <div class="question">
+        <p>Question 18:  I love hearing about new ideas and innovations<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_181" name="q18" required/>
+          <label for="radio_181" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_182" name="q18" required/>
+          <label for="radio_182" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_183" name="q18" required/>
+          <label for="radio_183" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_184" name="q18" required/>
+          <label for="radio_184" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_185" name="q18" required/>
+          <label for="radio_185" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+	  <div class="question">
+        <p>Question 19:  I enjoy competitive situations<span class="required">*</span></p>
+        <div class="question-answer">
+          Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_191" name="q19" required/>
+          <label for="radio_191" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_192" name="q19" required/>
+          <label for="radio_192" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_193" name="q19" required/>
+          <label for="radio_193" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_194" name="q19" required/>
+          <label for="radio_194" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_195" name="q19" required/>
+          <label for="radio_195" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+      </div>
+	  <div class="question">
+        <p>Question 20:  I enjoy having variety in my work<span class="required">*</span></p>
+        <div class="question-answer">
+         Strongly Disagree</h3>&nbsp &nbsp<input type="radio" value=1 id="radio_201" name="q20" required/>
+          <label for="radio_201" class="radio"><span>1</span></label>
+          <input type="radio" value=2 id="radio_202" name="q20" required/>
+          <label for="radio_202" class="radio"><span>2</span></label>
+        <input type="radio" value=3 id="radio_203" name="q20" required/>
+          <label for="radio_203" class="radio"><span>3</span></label>
+         <input type="radio" value=4 id="radio_204" name="q20" required/>
+          <label for="radio_204" class="radio"><span>4</span></label>
+         <input type="radio" value=5 id="radio_205" name="q20" required/>
+          <label for="radio_205" class="radio"><span>5</span></label>
+        Strongly Agree</h3>
+		  </div>
+
+        <div class="btn-block">
+          <button type="submit" href="/">check relevant career</button>
+        </div>
+    </form>
+	 <br>
+        <b><h1>{{ prediction_text }}
+</br>
+    </div>
+  </body>
+</html>
